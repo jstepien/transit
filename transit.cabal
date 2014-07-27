@@ -1,0 +1,38 @@
+name: transit
+version: 0.0.0.0
+synopsis: Transit encoding and decoding
+category: Text
+license: Apache-2.0
+author: Jan Stępień
+maintainer: jan@stepien.cc
+homepage: https://github.com/jstepien/transit
+bug-reports: https://github.com/transit/issues
+build-type: Simple
+cabal-version: >=1.8
+
+library
+  exposed-modules:
+    Data.Transit,
+    Data.Transit.JSON
+  other-modules:
+    Data.Transit.Internal
+  build-depends:
+    base == 4.6.*,
+    bytestring >= 0.10,
+    vector >= 0.10,
+    text >= 0.11,
+    aeson >= 0.7
+  ghc-options: -O2 -Wall
+
+test-suite tests
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  build-depends:
+    base == 4.6.*,
+    bytestring >= 0.10,
+    vector >= 0.10,
+    text >= 0.11,
+    aeson >= 0.7,
+    test-framework,
+    test-framework-quickcheck2
+  ghc-options: -O2 -Wall
